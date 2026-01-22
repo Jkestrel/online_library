@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      {!match && <Navbar />}
+      {match && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />

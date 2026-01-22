@@ -4,6 +4,7 @@ function NotFound() {
   const location = useLocation();
 
   return (
+    <div className="not-found">
     <div
       style={{
         padding: "40px",
@@ -20,6 +21,7 @@ function NotFound() {
 
       <Link to="/">Go back to Home</Link>
     </div>
+  </div>
   );
 }
 

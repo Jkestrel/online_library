@@ -26,6 +26,7 @@ function BrowseBooks() {
   );
 
   return (
+    <div className="page">
     <div style={{ padding: "24px" }}>
       <h1>Browse Books</h1>
 
@@ -44,13 +45,7 @@ function BrowseBooks() {
       />
 
       {/* Books List */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "16px",
-        }}
-      >
+      <div className="book-grid">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book) => (
             <BookCard key={book.id} book={book} />
@@ -60,6 +55,7 @@ function BrowseBooks() {
         )}
       </div>
     </div>
+  </div>
   );
 }
 

@@ -10,6 +10,7 @@ function Home() {
   const popularBooks = booksData.slice(0, 3);
 
   return (
+    <div className="page">
     <div style={{ padding: "24px" }}>
       <h1>Welcome to the Online Library 📚</h1>
       <p>Discover books across various categories</p>
@@ -38,6 +39,7 @@ function Home() {
         ))}
       </div>
     </div>
+  </div>
   );
 }
 
