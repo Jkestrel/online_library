@@ -1,22 +1,33 @@
-import { Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home";
-// import BrowseBooks from "./pages/BrowseBooks";
-// import BookDetails from "./pages/BookDetails";
-// import AddBook from "./pages/AddBook";
-// import NotFound from "./pages/NotFound";
+import { Routes, Route, useLocation, matchRoutes } from "react-router-dom";
+import Home from "./pages/Home";
+import BrowseBooks from "./pages/BrowseBooks";
+import BookDetails from "./pages/BookDetails";
+import AddBook from "./pages/AddBook";
+import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 
+const routes = [
+  { path: "/" },
+  { path: "/books/:category" },
+  { path: "/book/:id" },
+  { path: "/add-book" },
+];
+
 function App() {
+  const location = useLocation();
+  const match = matchRoutes(routes, location);
+
   return (
     <>
-      <Navbar />
-      {/* <Routes> */}
-        {/* <Route path="/" element={<Home />} /> */}
-        {/* <Route path="/books/:category" element={<BrowseBooks />} /> */}
-        {/* <Route path="/book/:id" element={<BookDetails />} /> */}
-        {/* <Route path="/add-book" element={<AddBook />} /> */}
-        {/* <Route path="*" element={<NotFound />} /> */}
-      {/* </Routes> */}
+      {!match && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books/:category" element={<BrowseBooks />} />
+        <Route path="/book/:id" element={<BookDetails />} />
+        <Route path="/add-book" element={<AddBook />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
